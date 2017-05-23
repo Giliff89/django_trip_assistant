@@ -25,10 +25,12 @@ class Trip(models.Model):
     depart_date = models.DateField('departure date')
     return_date = models.DateField('return date')
     days = models.IntegerField(default=1)
-    destination = models.CharField(max_length=256)
+    city = models.CharField(max_length=256)
+    state = models.CharField(max_length=256, null=True)
+    country = models.CharField(max_length=256, null=True)
 
     def __str__(self):
-        return self.destination
+        return self.city
 
 
 @python_2_unicode_compatible
