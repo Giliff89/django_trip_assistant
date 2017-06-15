@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from django.http import Http404, HttpResponse
+# from django.http import Http404, HttpResponse
 
 
 def index(request):
@@ -11,36 +11,43 @@ def index(request):
 
 
 def register(request):
-    return HttpResponse("Create a new profile")
+    return render(request, 'trip_assistant/register.html')
 
 
 def login(request):
-    return HttpResponse("Log in to your account")
+    return render(request, 'trip_assistant/login.html')
 
 
-def homepage(request, traveler):
-    return HttpResponse("This is your personal homepage and news feed")
+def homepage(request):
+    return render(request, 'trip_assistant/homepage.html')
 
 
-def traveler_profile(request, traveler):
-    return HttpResponse("Welcome to your profile page, %s." % traveler)
+def traveler_profile(request):
+
+    traveler = request.traveler.username
+
+    return render(request, 'trip_assistant/traveler_profile.html', {'traveler': traveler})
 
 
-def add_trip(request, traveler):
-    return HttpResponse("%s add a new trip" % traveler)
+def add_trip(request):
+
+    return render(request, 'trip_assistant/add_trip.html')
 
 
-def trip_profile(request, traveler, city):
+def trip_profile(request):
 
     # TODO: Figure out how to map this to the specific user's trip by trip id,
-    # may need to take in the trip.id instead of city and just return the city
+    # may need to take in the trip.id
+
+    # trip =
+
     # try:
     #     trip = Trip.objects.get(pk=id)
     # except Trip.DoesNotExist:
     #     raise Http404("Trip does not exist")
-    # return render(request, 'trip_assistant/detail.html', {'trip': trip})
+    # return render(request, 'trip_assistant/trip_profile.html', {'trip': trip})
 
-    return HttpResponse("%s's trip to %s." % (traveler, city))
+    return HttpResponse("%s's trip to %s." % request.traveler.username)
 
 # Views needed: 1) Index 2) Sign up 3) Login 4) Logged-in Homepage
 # 5) User profile 6) Add trip page 7) Trip profile 8) Itinerary builder
