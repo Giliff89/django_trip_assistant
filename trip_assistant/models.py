@@ -24,7 +24,7 @@ class Trip(models.Model):
     traveler = models.ForeignKey(Traveler, on_delete=models.CASCADE)
     depart_date = models.DateField('departure date')
     return_date = models.DateField('return date')
-    days = models.IntegerField(default=1)
+    days = models.IntegerField(default=1, null=True)
     street_address = models.CharField(max_length=56, null=True)
     city = models.CharField(max_length=256)
     state = models.CharField(max_length=256, null=True)

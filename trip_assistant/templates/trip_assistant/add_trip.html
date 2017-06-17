@@ -1,20 +1,46 @@
 <!-- This is the page the user will see when logged in and they click the link to add a new trip -->
 
+<!-- {% extends 'base.html' %} -->
+<!-- {% block content %} -->
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Create a new trip</title>
     </head>
     <body>
-        <!-- <form action="{% url 'polls:vote' question.id %}" method="post">
-        {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-        {% endfor %}
-        <input type="submit" value="Vote" />
-        </form> -->
+
+        <div class="page-header">
+            <h1>Add a Trip</h1>
+        </div>
+
+        <!-- TODO: set this up in views, create the action, and set up drop down menus for state/country along with calendar views for dates. -->
+
+        <form method="POST">
+
+            Where are you going?
+            <br>
+            Street address:
+            <input type="text" name="location" required><br>
+            City:
+            <input type="text" name="city" required><br>
+            State (if applicable):
+            <input type="text" name="state"><br>
+            Country:
+            <input type="text" name="country" required><br>
+            <br>
+
+            When are you going?
+            <br>
+            Departure date:
+            <input type="text" name="depart_date"><br>
+            Return date:
+            <input type="text" name="return_date"><br>
+            <input type="submit">
+
+        </form>
+        
     </body>
 </html>
 
-<!-- TODO turn form into trip adding form, and add in info from current trips like links with trip location and dates -->
+<!-- {% endblock %}

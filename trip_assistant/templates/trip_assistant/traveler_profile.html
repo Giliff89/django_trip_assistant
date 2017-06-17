@@ -1,5 +1,8 @@
 <!-- The user will visit this page after signing in and clicking on their profile -->
 
+<!-- {% extends 'base.html' %}
+{% block content %} -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,5 +10,37 @@
     </head>
     <body>
 
+        <!-- TODO: Set up dict in views to pass through trips -->
+
+        <div class="page-header">
+            <h1>{{ traveler.username }}'s Profile </h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 center-block">
+                    <h3><span class="list_head"> Your trips: </span></h3>
+
+                    {% if traveler.trips %}
+
+                        <ul>
+                            {% for trip in traveler.trips %}
+                                <li>
+                                    <a href='/trip_profile/{{ trip.id }}/{{ trip.city }}'>Your {{ trip.city }} trip </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    {% endif %} 
+                </div>
+
+                <div class="col-sm-6 center-block">
+                    <h3><span class="add_trip"><a href='/add_trip'>Add a new trip</a></span></h3>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
+
+<!-- {% endblock %}

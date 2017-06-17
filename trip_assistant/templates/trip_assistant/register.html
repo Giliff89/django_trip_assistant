@@ -1,11 +1,43 @@
 <!-- The user will navigate to this page when they click on register a new account from the index or log in page -->
 
+
+<!-- {% extends 'base.html' %}
+{% block content %} -->
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Create an account</title>
     </head>
     <body>
-        <!-- Form to register - email, username and password -->
+
+        <div class="page-header">
+            <h1>Register for a new account <br> <small>Start getting trip suggestions!</small></h1>
+        </div>
+
+        <form method="POST">
+
+            Enter your email:
+            <br>
+            <input type="text" name="email" required>
+            <br>
+            <br>
+
+            Choose a username:
+            <br>
+            <input type="text" name="username" required>
+            <br>
+            <br>
+
+            Enter a password:
+            <br>
+            <input type="password" name="password" required>
+            <br>
+            <br>
+            <input type="submit" value="Register">
+
+        </form>
     </body>
 </html>
+
+<!-- {% endblock %} -->

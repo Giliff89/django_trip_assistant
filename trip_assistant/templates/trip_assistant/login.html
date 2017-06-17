@@ -1,11 +1,35 @@
 <!-- This is the page where a user will login to their account -->
 
+<!-- {% extends 'base.html' %} -->
+<!-- {% block content %} -->
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Log in to your account</title>
     </head>
     <body>
-        <!-- Form for login - username and password -->
+
+        <div class="page-header">
+            <h1>Login to your profile <br> <small>View your trips and get recommendations</small></h1>
+        </div>
+        
+        <form method="POST">
+
+            Enter your username:
+            <br>
+            <input type="text" name="username"><br>
+            <br>
+
+            Enter your password:
+            <br>
+            <input type="password" name="password"><br>
+            <br>
+
+            <input type="submit" value="Login">
+
+        </form>
     </body>
 </html>
+
+<!-- {% endblock %}
