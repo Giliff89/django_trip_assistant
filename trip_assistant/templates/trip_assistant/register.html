@@ -15,7 +15,16 @@
             <h1>Register for a new account <br> <small>Start getting trip suggestions!</small></h1>
         </div>
 
-        <form method="POST">
+        {% if error %}
+
+            {{ error }}
+            <br>
+            <br>
+
+        {% endif %}
+
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
 
             Enter your email:
             <br>

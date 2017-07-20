@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from .models import Traveler, Trip
+from .models import User, Trip
 
-admin.site.register(Traveler)
+admin.site.register(User)
 
 admin.site.register(Trip)

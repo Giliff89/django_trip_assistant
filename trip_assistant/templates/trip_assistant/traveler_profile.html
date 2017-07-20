@@ -6,14 +6,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ traveler }}'s traveler profile</title>
+        <title>{{ user }}'s traveler profile</title>
     </head>
     <body>
 
         <!-- TODO: Set up dict in views to pass through trips -->
 
         <div class="page-header">
-            <h1>{{ traveler.username }}'s Profile </h1>
+            <h1>{{ user.username }}'s Profile </h1>
         </div>
 
         <div class="container">
@@ -21,10 +21,10 @@
                 <div class="col-sm-6 center-block">
                     <h3><span class="list_head"> Your trips: </span></h3>
 
-                    {% if traveler.trips %}
+                    {% if user.trips %}
 
                         <ul>
-                            {% for trip in traveler.trips %}
+                            {% for trip in user.trips %}
                                 <li>
                                     <a href='/trip_profile/{{ trip.id }}/{{ trip.city }}'>Your {{ trip.city }} trip </a>
                                 </li>

@@ -6,7 +6,7 @@ from django.utils.encoding import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
-class Traveler(models.Model):
+class User(models.Model):
     """The user of Trip Assistant website."""
 
     username = models.CharField(max_length=24, unique=True)
@@ -19,9 +19,9 @@ class Traveler(models.Model):
 
 @python_2_unicode_compatible
 class Trip(models.Model):
-    """Info for a trip that belongs to a specific Traveler."""
+    """Info for a trip that belongs to a specific user."""
 
-    traveler = models.ForeignKey(Traveler, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     depart_date = models.DateField('departure date')
     return_date = models.DateField('return date')
     days = models.IntegerField(default=1, null=True)
